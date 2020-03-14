@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon --exec ts-node src/server.ts",
-    "prisma": "prisma deploy && prisma generate"
+    "prisma": "prisma deploy && prisma generate",
+    "deploy": "now"
   },
   "dependencies": {
     "graphql-yoga": "^1.18.3",
