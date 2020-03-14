@@ -1,4 +1,62 @@
 type User {
   id: ID! @id
   name: String!
+  dateCreated: DateTime! @createdAt
+  dateUpdated: DateTime! @updatedAt
+  email: String! @unique
+
+  bookReads: [UserBookRead!]!
+  bookWants: [UserBookWant!]!
+}
+
+type Book {
+  id: ID! @id
+  name: String!
+  datePublished: DateTime!
+  description: String!
+  ratingAverage: Int!
+
+  dateCreated: DateTime! @createdAt
+
+  hashtags: [BookHashtag!]!
+  author: BookAuthor!
+
+  coverImage: String!
+  images: [String!]! @scalarList(strategy: RELATION)
+}
+
+type BookCategory {
+  id: ID! @id
+  name: String! @unique
+  books: [Book!]!
+}
+
+type BookHashtag {
+  id: ID! @id
+  name: String! @unique
+  books: [Book!]!
+}
+
+type BookAuthor {
+  id: ID! @id
+  name: String!
+  books: [Book!]!
+}
+
+type UserBookRead {
+  id: ID! @id
+  dateCreated: DateTime! @createdAt
+  rating: Int!
+  comment: String!
+
+  user: User!
+  book: Book!
+}
+
+type UserBookWant {
+  id: ID! @id
+  dateCreated: DateTime! @createdAt
+
+  user: User!
+  book: Book!
 }
