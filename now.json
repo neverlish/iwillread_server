@@ -12,7 +12,7 @@
   ],
   "routes": [
     {
-      "src": "/graphql",
+      "src": "/(.*)",
       "dest": "src/server.ts",
       "headers": {
         "Access-Control-Allow-Origin": "*",
@@ -20,5 +20,19 @@
         "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
       }
     }
-  ]
+  ],
+  "env": {
+    "JWTSECRET": "@jwtsecret",
+    "GOOGLE_OAUTH2_CLIENT_ID": "@google_oauth2_client_id",
+    "GOOGLE_OAUTH2_CLIENT_SECRET": "@google_oauth2_client_secret",
+    "GOOGLE_OAUTH2_REDIRECT_URI": "@google_oauth2_redirect_uri"
+  },
+  "build": {
+    "env": {
+      "JWTSECRET": "@jwtsecret",
+      "GOOGLE_OAUTH2_CLIENT_ID": "@google_oauth2_client_id",
+      "GOOGLE_OAUTH2_CLIENT_SECRET": "@google_oauth2_client_secret",
+      "GOOGLE_OAUTH2_REDIRECT_URI": "@google_oauth2_redirect_uri"
+    }
+  }
 }
