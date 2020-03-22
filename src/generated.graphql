@@ -35,7 +35,6 @@ type Book {
   name: String!
   datePublished: DateTime!
   description: String!
-  ratingAverage: Int!
   dateCreated: DateTime!
   hashtags(where: BookHashtagWhereInput, orderBy: BookHashtagOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [BookHashtag!]
   author: BookAuthor!
@@ -291,7 +290,6 @@ input BookCreateInput {
   name: String!
   datePublished: DateTime!
   description: String!
-  ratingAverage: Int!
   hashtags: BookHashtagCreateManyWithoutBooksInput
   author: BookAuthorCreateOneWithoutBooksInput!
   coverImage: String!
@@ -323,7 +321,6 @@ input BookCreateWithoutAuthorInput {
   name: String!
   datePublished: DateTime!
   description: String!
-  ratingAverage: Int!
   hashtags: BookHashtagCreateManyWithoutBooksInput
   coverImage: String!
   images: BookCreateimagesInput
@@ -334,7 +331,6 @@ input BookCreateWithoutHashtagsInput {
   name: String!
   datePublished: DateTime!
   description: String!
-  ratingAverage: Int!
   author: BookAuthorCreateOneWithoutBooksInput!
   coverImage: String!
   images: BookCreateimagesInput
@@ -538,8 +534,6 @@ enum BookOrderByInput {
   datePublished_DESC
   description_ASC
   description_DESC
-  ratingAverage_ASC
-  ratingAverage_DESC
   dateCreated_ASC
   dateCreated_DESC
   coverImage_ASC
@@ -551,7 +545,6 @@ type BookPreviousValues {
   name: String!
   datePublished: DateTime!
   description: String!
-  ratingAverage: Int!
   dateCreated: DateTime!
   coverImage: String!
   images: [String!]!
@@ -608,14 +601,6 @@ input BookScalarWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
-  ratingAverage: Int
-  ratingAverage_not: Int
-  ratingAverage_in: [Int!]
-  ratingAverage_not_in: [Int!]
-  ratingAverage_lt: Int
-  ratingAverage_lte: Int
-  ratingAverage_gt: Int
-  ratingAverage_gte: Int
   dateCreated: DateTime
   dateCreated_not: DateTime
   dateCreated_in: [DateTime!]
@@ -665,7 +650,6 @@ input BookUpdateDataInput {
   name: String
   datePublished: DateTime
   description: String
-  ratingAverage: Int
   hashtags: BookHashtagUpdateManyWithoutBooksInput
   author: BookAuthorUpdateOneRequiredWithoutBooksInput
   coverImage: String
@@ -680,7 +664,6 @@ input BookUpdateInput {
   name: String
   datePublished: DateTime
   description: String
-  ratingAverage: Int
   hashtags: BookHashtagUpdateManyWithoutBooksInput
   author: BookAuthorUpdateOneRequiredWithoutBooksInput
   coverImage: String
@@ -691,7 +674,6 @@ input BookUpdateManyDataInput {
   name: String
   datePublished: DateTime
   description: String
-  ratingAverage: Int
   coverImage: String
   images: BookUpdateimagesInput
 }
@@ -712,7 +694,6 @@ input BookUpdateManyMutationInput {
   name: String
   datePublished: DateTime
   description: String
-  ratingAverage: Int
   coverImage: String
   images: BookUpdateimagesInput
 }
@@ -757,7 +738,6 @@ input BookUpdateWithoutAuthorDataInput {
   name: String
   datePublished: DateTime
   description: String
-  ratingAverage: Int
   hashtags: BookHashtagUpdateManyWithoutBooksInput
   coverImage: String
   images: BookUpdateimagesInput
@@ -767,7 +747,6 @@ input BookUpdateWithoutHashtagsDataInput {
   name: String
   datePublished: DateTime
   description: String
-  ratingAverage: Int
   author: BookAuthorUpdateOneRequiredWithoutBooksInput
   coverImage: String
   images: BookUpdateimagesInput
@@ -862,14 +841,6 @@ input BookWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
-  ratingAverage: Int
-  ratingAverage_not: Int
-  ratingAverage_in: [Int!]
-  ratingAverage_not_in: [Int!]
-  ratingAverage_lt: Int
-  ratingAverage_lte: Int
-  ratingAverage_gt: Int
-  ratingAverage_gte: Int
   dateCreated: DateTime
   dateCreated_not: DateTime
   dateCreated_in: [DateTime!]

@@ -14,7 +14,6 @@ type Book {
   name: String!
   datePublished: DateTime!
   description: String!
-  ratingAverage: Int!
 
   dateCreated: DateTime! @createdAt
 
