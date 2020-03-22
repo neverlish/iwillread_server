@@ -3,6 +3,7 @@ type User {
   name: String!
   dateCreated: DateTime! @createdAt
   dateUpdated: DateTime! @updatedAt
+  password: String
   email: String! @unique
 
   bookReads: [UserBookRead!]!
@@ -22,12 +23,11 @@ type Book {
 
   coverImage: String!
   images: [String!]! @scalarList(strategy: RELATION)
-}
 
-type BookCategory {
-  id: ID! @id
-  name: String! @unique
-  books: [Book!]!
+  bookReads: [UserBookRead!]!
+  bookWants: [UserBookWant!]!
+
+  userRegistered: User!
 }
 
 type BookHashtag {
